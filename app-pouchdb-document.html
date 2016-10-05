@@ -138,7 +138,7 @@ PouchDB document:
         this.set('data._deleted', true);
         return this.transactionsComplete.then(function() {
           return this.reset();
-        });
+        }.bind(this)); // bind this to preserve scope
       },
 
       /** @override */
@@ -181,6 +181,12 @@ PouchDB document:
 
       __computeChanges: function(db, docId) {
         if (this.changes) {
+          /*
+           * Cancel prevents EventEmitter memory leak error
+           * caused by the line below: db.changes({ live: true })
+           * https://pouchdb.com/errors.html#event_emitter_limit
+           */
+          this.changes.cancel(); // 
           this.changes.removeAllListeners();
         }
 
