@@ -6,11 +6,7 @@
   ],
   "description": "Custom Elements for working with PouchDB.",
   "main": [
-    "app-pouchdb-document.html",
-    "app-pouchdb-query.html",
-    "app-pouchdb-index.html",
-    "app-pouchdb-conflict-resolution.html",
-    "app-pouchdb-database-behavior.html"
+    "app-pouchdb.html"
   ],
   "license": "http://polymer.github.io/LICENSE.txt",
   "homepage": "https://github.com/PolymerElements/app-pouchdb",
